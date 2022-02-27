@@ -11,7 +11,7 @@ import SwiftUI
 struct GuessNumberAppApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(currentValue: 50)
         }
     }
 }
