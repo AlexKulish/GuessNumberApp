@@ -14,15 +14,22 @@ struct ContentView: View {
     
     @State private var isCheck = false
     
+    private let minimumValue = 0
+    private let maximumValue = 100
+    
     var body: some View {
         VStack {
             
             Text("Подвинь слайдер как можно ближе к: \(targetValue)")
             
             HStack {
-                Text("0")
-                SliderView(currentValue: $currentValue, targetValue: targetValue, colorThumb: .red)
-                Text("100")
+                Text("\(minimumValue)")
+                SliderView(currentValue: $currentValue,
+                           targetValue: targetValue,
+                           colorThumb: .red,
+                           minimumValue: minimumValue,
+                           maximumValue: maximumValue)
+                Text("\(maximumValue)")
             }
             .padding()
             

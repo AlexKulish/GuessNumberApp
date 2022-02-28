@@ -14,13 +14,15 @@ struct SliderView: UIViewRepresentable {
     
     var targetValue: Int
     var colorThumb: Color
+    var minimumValue: Int
+    var maximumValue: Int
     
     func makeUIView(context: Context) -> UISlider {
         
         let slider = UISlider()
         slider.value = Float(currentValue)
-        slider.minimumValue = 0
-        slider.maximumValue = 100
+        slider.minimumValue = Float(minimumValue)
+        slider.maximumValue = Float(maximumValue)
         
         slider.addTarget(
             context.coordinator,
@@ -54,7 +56,7 @@ struct SliderView: UIViewRepresentable {
     
     private func computeScore() -> Float {
         let difference = abs(targetValue - currentValue)
-        let alpha = (Float(targetValue) - Float(difference)) / Float(targetValue)
+        let alpha = (Float(maximumValue) - Float(difference)) / Float(maximumValue)
         return alpha
     }
     
@@ -77,6 +79,6 @@ extension SliderView {
 
 struct SliderView_Previews: PreviewProvider {
     static var previews: some View {
-        SliderView(currentValue: .constant(50), targetValue: 50, colorThumb: .red)
+        SliderView(currentValue: .constant(50), targetValue: 50, colorThumb: .red, minimumValue: 0, maximumValue: 100)
     }
 }
