@@ -39,11 +39,11 @@ struct ContentView: View {
             }
             .padding()
             
-            Button { targetValue = Int.random(in: 0...100) } label: {
+            Button { targetValue = Int.random(in: minimumValue...maximumValue) } label: {
                 Text("Начать заново")
             }
-
-
+            
+            
         }
     }
 }
