@@ -54,7 +54,7 @@ struct SliderView: UIViewRepresentable {
     
     private func computeScore() -> Float {
         let difference = abs(targetValue - currentValue)
-        let alpha: Float = (Float(targetValue) - Float(difference)) / Float(targetValue)
+        let alpha = (Float(targetValue) - Float(difference)) / Float(targetValue)
         return alpha
     }
     
