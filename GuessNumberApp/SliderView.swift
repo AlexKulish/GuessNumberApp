@@ -11,7 +11,9 @@ struct SliderView: UIViewRepresentable {
     
     
     @Binding var currentValue: Int
+    
     var targetValue: Int
+    var colorThumb: Color
     
     func makeUIView(context: Context) -> UISlider {
         
@@ -19,7 +21,6 @@ struct SliderView: UIViewRepresentable {
         slider.value = Float(currentValue)
         slider.minimumValue = 0
         slider.maximumValue = 100
-        slider.thumbTintColor = .red
         
         slider.addTarget(
             context.coordinator,
@@ -31,16 +32,30 @@ struct SliderView: UIViewRepresentable {
     }
     
     func updateUIView(_ uiView: UISlider, context: Context) {
+        
+        let uiColor = UIColor(colorThumb)
+        let ciColor = CIColor(color: uiColor)
+        let alpha = CGFloat(computeScore())
+        
+        
         uiView.value = Float(currentValue)
+        
+        uiView.thumbTintColor = UIColor(
+            displayP3Red: ciColor.red,
+            green: ciColor.green,
+            blue: ciColor.blue,
+            alpha: alpha
+        )
     }
     
     func makeCoordinator() -> Coordinator {
         Coordinator(value: $currentValue)
     }
     
-    private func computeScore() -> Int {
+    private func computeScore() -> Float {
         let difference = abs(targetValue - currentValue)
-        return 100 - difference
+        let alpha: Float = (Float(targetValue) - Float(difference)) / Float(targetValue)
+        return alpha
     }
     
 }
@@ -62,6 +77,6 @@ extension SliderView {
 
 struct SliderView_Previews: PreviewProvider {
     static var previews: some View {
-        SliderView(currentValue: .constant(50), targetValue: 50)
+        SliderView(currentValue: .constant(50), targetValue: 50, colorThumb: .red)
     }
 }

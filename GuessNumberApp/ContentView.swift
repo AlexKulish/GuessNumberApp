@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     
     @State private var targetValue = Int.random(in: 0...100)
-    @State var currentValue: Int
+    @State private var currentValue = 20
     
     @State private var isCheck = false
     
@@ -21,7 +21,7 @@ struct ContentView: View {
             
             HStack {
                 Text("0")
-                SliderView(currentValue: $currentValue, targetValue: targetValue)
+                SliderView(currentValue: $currentValue, targetValue: targetValue, colorThumb: .red)
                 Text("100")
             }
             .padding()
@@ -43,6 +43,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(currentValue: 50)
+        ContentView()
     }
 }
