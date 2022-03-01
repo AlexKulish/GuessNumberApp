@@ -9,43 +9,35 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State private var targetValue = Int.random(in: 0...100)
-    @State private var currentValue = 20
-    
+    @State private var targetValue = Int.random(in: 1...100)
+    @State private var currentValue = 50
     @State private var isCheck = false
-    
-    private let minimumValue = 0
-    private let maximumValue = 100
     
     var body: some View {
         VStack {
             
-            Text("Подвинь слайдер как можно ближе к: \(targetValue)")
-            
-            HStack {
-                Text("\(minimumValue)")
-                SliderView(currentValue: $currentValue,
-                           targetValue: targetValue,
-                           colorThumb: .red,
-                           minimumValue: minimumValue,
-                           maximumValue: maximumValue)
-                Text("\(maximumValue)")
-            }
-            .padding()
+            GameSlider(currentValue: $currentValue,
+                       targetValue: targetValue,
+                       alpha: calculateScore(),
+                       color: .red)
             
             Button { isCheck.toggle() } label: { Text("Проверь меня!") }
             .alert("Your score", isPresented: $isCheck, actions: {}) {
-                Text("\(currentValue)")
+                Text("\(calculateScore())")
             }
             .padding()
             
-            Button { targetValue = Int.random(in: minimumValue...maximumValue) } label: {
+            Button { targetValue = Int.random(in: 1...100) } label: {
                 Text("Начать заново")
             }
-            
-            
         }
     }
+    
+    private func calculateScore() -> Int {
+        let difference = abs(targetValue - currentValue)
+        return 100 - difference
+    }
+    
 }
 
 struct ContentView_Previews: PreviewProvider {

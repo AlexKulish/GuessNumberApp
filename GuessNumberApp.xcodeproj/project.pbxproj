@@ -12,6 +12,7 @@
 		592483FC27CBAB43009B3B24 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 592483FB27CBAB43009B3B24 /* Assets.xcassets */; };
 		592483FF27CBAB43009B3B24 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 592483FE27CBAB43009B3B24 /* Preview Assets.xcassets */; };
 		5924840827CBBB31009B3B24 /* SliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5924840727CBBB31009B3B24 /* SliderView.swift */; };
+		5924840A27CE20E4009B3B24 /* GameSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5924840927CE20E4009B3B24 /* GameSlider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		592483FB27CBAB43009B3B24 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		592483FE27CBAB43009B3B24 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5924840727CBBB31009B3B24 /* SliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderView.swift; sourceTree = "<group>"; };
+		5924840927CE20E4009B3B24 /* GameSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSlider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 			isa = PBXGroup;
 			children = (
 				592483F927CBAB40009B3B24 /* ContentView.swift */,
+				5924840927CE20E4009B3B24 /* GameSlider.swift */,
 				5924840727CBBB31009B3B24 /* SliderView.swift */,
 				592483F727CBAB40009B3B24 /* GuessNumberAppApp.swift */,
 				592483FB27CBAB43009B3B24 /* Assets.xcassets */,
@@ -140,6 +143,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5924840A27CE20E4009B3B24 /* GameSlider.swift in Sources */,
 				592483FA27CBAB40009B3B24 /* ContentView.swift in Sources */,
 				5924840827CBBB31009B3B24 /* SliderView.swift in Sources */,
 				592483F827CBAB40009B3B24 /* GuessNumberAppApp.swift in Sources */,
